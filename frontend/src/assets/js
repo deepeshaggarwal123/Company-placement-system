@@ -1,0 +1,187 @@
+// frontend/src/assets/js/common.js
+
+
+// =====================================================
+// Show Alert Message
+// =====================================================
+
+export function showMessage(
+    message,
+    type = "success"
+){
+
+    return {
+
+        message: message,
+
+        type: type
+
+    }
+
+}
+
+
+
+// =====================================================
+// Format Date
+// =====================================================
+
+export function formatDate(date){
+
+    if(!date){
+
+        return ""
+
+    }
+
+
+    return new Date(date)
+        .toLocaleDateString()
+
+}
+
+
+
+// =====================================================
+// Format Date Time
+// =====================================================
+
+export function formatDateTime(date){
+
+    if(!date){
+
+        return ""
+
+    }
+
+
+    return new Date(date)
+        .toLocaleString()
+
+}
+
+
+
+// =====================================================
+// File Size Formatter
+// =====================================================
+
+export function formatFileSize(bytes){
+
+    if(bytes === 0){
+
+        return "0 KB"
+
+    }
+
+
+    const sizes = [
+
+        "Bytes",
+
+        "KB",
+
+        "MB",
+
+        "GB"
+
+    ]
+
+
+    const index = Math.floor(
+
+        Math.log(bytes) /
+
+        Math.log(1024)
+
+    )
+
+
+    return (
+
+        Math.round(
+
+            bytes /
+            Math.pow(1024,index)
+
+        )
+
+        +
+
+        " "
+
+        +
+
+        sizes[index]
+
+    )
+
+}
+
+
+
+// =====================================================
+// Validate Email
+// =====================================================
+
+export function validateEmail(email){
+
+    const pattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+
+    return pattern.test(email)
+
+}
+
+
+
+// =====================================================
+// Validate Password
+// =====================================================
+
+export function validatePassword(password){
+
+    return password.length >= 8
+
+}
+
+
+
+// =====================================================
+// Local Storage User
+// =====================================================
+
+export function saveUser(user){
+
+    localStorage.setItem(
+
+        "user",
+
+        JSON.stringify(user)
+
+    )
+
+}
+
+
+
+export function getUser(){
+
+    return JSON.parse(
+
+        localStorage.getItem("user")
+
+    )
+
+}
+
+
+
+export function removeUser(){
+
+    localStorage.removeItem(
+        "user"
+    )
+
+}

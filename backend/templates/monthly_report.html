@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Monthly Placement Report</title>
+
+    <style>
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f4f6f9;
+            margin:0;
+            padding:30px;
+        }
+
+        .container{
+            max-width:900px;
+            margin:auto;
+            background:#ffffff;
+            border-radius:8px;
+            overflow:hidden;
+            box-shadow:0 2px 10px rgba(0,0,0,.15);
+        }
+
+        .header{
+            background:#0d6efd;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .content{
+            padding:25px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table th{
+            background:#0d6efd;
+            color:white;
+            padding:12px;
+            text-align:left;
+        }
+
+        table td{
+            padding:10px;
+            border:1px solid #ddd;
+        }
+
+        tr:nth-child(even){
+            background:#f8f9fa;
+        }
+
+        .footer{
+            background:#eeeeee;
+            text-align:center;
+            padding:15px;
+            font-size:14px;
+        }
+
+        .title{
+            font-size:22px;
+            margin-bottom:5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h2>Placement Portal</h2>
+
+        <div class="title">
+            Monthly Activity Report
+        </div>
+
+        <p>
+            Generated On :
+            {{ report.generated_on }}
+        </p>
+
+    </div>
+
+    <div class="content">
+
+        <h3>Institute Statistics</h3>
+
+        <table>
+
+            <tr>
+                <th>Category</th>
+                <th>Count</th>
+            </tr>
+
+            <tr>
+                <td>Total Students</td>
+                <td>{{ report.total_students }}</td>
+            </tr>
+
+            <tr>
+                <td>Total Companies</td>
+                <td>{{ report.total_companies }}</td>
+            </tr>
+
+            <tr>
+                <td>Total Placement Drives</td>
+                <td>{{ report.total_drives }}</td>
+            </tr>
+
+            <tr>
+                <td>Total Applications</td>
+                <td>{{ report.total_applications }}</td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <h3>Company Summary</h3>
+
+        <table>
+
+            <tr>
+                <th>Category</th>
+                <th>Count</th>
+            </tr>
+
+            <tr>
+                <td>Approved Companies</td>
+                <td>{{ report.approved_companies }}</td>
+            </tr>
+
+            <tr>
+                <td>Pending Companies</td>
+                <td>{{ report.pending_companies }}</td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <h3>Placement Drives</h3>
+
+        <table>
+
+            <tr>
+                <th>Status</th>
+                <th>Count</th>
+            </tr>
+
+            <tr>
+                <td>Approved Drives</td>
+                <td>{{ report.approved_drives }}</td>
+            </tr>
+
+            <tr>
+                <td>Pending Drives</td>
+                <td>{{ report.pending_drives }}</td>
+            </tr>
+
+            <tr>
+                <td>Closed Drives</td>
+                <td>{{ report.closed_drives }}</td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <h3>Student Applications</h3>
+
+        <table>
+
+            <tr>
+                <th>Status</th>
+                <th>Count</th>
+            </tr>
+
+            <tr>
+                <td>Applied</td>
+                <td>{{ report.applied_students }}</td>
+            </tr>
+
+            <tr>
+                <td>Shortlisted</td>
+                <td>{{ report.shortlisted_students }}</td>
+            </tr>
+
+            <tr>
+                <td>Selected</td>
+                <td>{{ report.selected_students }}</td>
+            </tr>
+
+            <tr>
+                <td>Rejected</td>
+                <td>{{ report.rejected_students }}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="footer">
+
+        Placement Portal Application
+
+        <br><br>
+
+        This is an automatically generated monthly report.
+
+        <br>
+
+        © {{ report.generated_on[:4] }} Placement Cell
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
